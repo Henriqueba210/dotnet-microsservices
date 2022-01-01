@@ -1,6 +1,7 @@
 using Microsoft.EntityFrameworkCore;
 using PlatformService.Data;
 using PlatformService.Data.Interfaces;
+using PlatformService.Data.Mock;
 
 var builder = WebApplication.CreateBuilder(args);
 
@@ -27,6 +28,8 @@ app.UseHttpsRedirection();
 app.UseAuthorization();
 
 app.MapControllers();
+
+PrepDb.PrepPopulation(app);
 
 
 app.Run();
